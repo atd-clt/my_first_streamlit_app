@@ -42,30 +42,6 @@ The 5 changes I made were:
 - Change 5: Adjusted background color of scatter plot
 """)
 
-st.subheader('Question 4')
-
-from vega_datasets import data
-source = data.unemployment_across_industries.url
-
-steamgraph = alt.Chart(source, title="Unemployment Across Industries").mark_area().encode(
-    alt.X('yearmonth(date):T',
-        axis=alt.Axis(format='%Y', domain=False, tickSize=0)
-    ),
-    alt.Y('sum(count):Q', stack='center', axis=None),
-    alt.Color('series:N',
-        scale=alt.Scale(scheme='redyellowgreen')
-    )
-).interactive()
-
-st.altair_chart(steamgraph, use_container_width=True)
-
-st.markdown("""
-The 2 changes I made were:
-- Change 1:  Added a title to the chart  
-- Change 2: Changed the color to a red-yellow-green 
-"""
-)
-
 st.subheader('Question 4 - HW Example')
 
 source = pd.read_json('imdb.json')
